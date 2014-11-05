@@ -1,4 +1,4 @@
-mobile-web-slides
+Mobile Web Slides
 =================
 
 Slides from the mobile web speaking (in Spanish)

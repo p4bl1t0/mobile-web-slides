@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Web Móvil</title>
+
+        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+        <meta name="author" content="Hakim El Hattab">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <style type="text/css">
+            .reveal .enfasis {
+                font-size: 1.4em;
+                font-weight: bold;
+                margin-bottom: .5em;
+            }
+            .text-hightlight {
+                color:yellow!important;
+            }
+            .text-hightlight-blue {
+                color:#00DDDD;
+            }
+            .tall-image {
+                max-height:80%!important;
+                max-width:80%!important;
+            }
+            .text {
+                text-align: left;
+            }
+            figure {
+                position:relative;
+                width:80%;
+                margin:auto;
+                display:inline-block!important;
+                -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+                -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+                box-sizing: border-box;         /* Opera/IE 8+ */
+            }
+            figure > .img {
+                position:relative;
+                z-index:0;
+                max-width:100%!important;
+                max-height:100%!important;
+                -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+                -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+                box-sizing: border-box;         /* Opera/IE 8+ */
+            }
+            figure > figcaption {
+                border: 0;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+                z-index:1;
+                -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+                -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+                box-sizing: border-box;         /* Opera/IE 8+ */
+            }
+            figure:hover > figcaption,
+            figure:focus > figcaption {
+                border: 0;
+                clip: auto;
+                height: auto;
+                margin: auto;
+                width: 100%;
+                overflow: hidden;
+                padding: .3em;
+                position: absolute;
+                bottom:0;
+                background:gray;
+                z-index:1;
+            }
+            .reveal table {
+                margin: auto;
+            }
+
+            .reveal table th {
+                text-shadow:none;
+                text-align: right;
+            }
+            .reveal table td  {
+                text-align: right;
+                color:#00DDDD;
+            }
+            .reveal h1 {
+                font-size: 3.2em;
+            }
+            .reveal code {
+                font-family: consolas, "Courier New", monospace;
+                /*font-family: consolas!important;*/
+            }
+            .reveal .quote {
+                margin: 1em 0;
+                width: 90%;
+            }
+            .reveal section .image-left {
+                float: left;
+                margin-right: 1em;
+            }
+            .reveal p + p {
+                margin-top: 1.5em;
+            }
+        </style>
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>Web Móvil</h1>
+                    <h2>Sitios web pensados <br />para el futuro</h2>
+                    <p><abbr title="Universidad Tecnológica Nacional">UTN</abbr> 2014</p>
+                    <p>
+                        <a href="http://github.com/p4bl1t0">Pablo Botta</a>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Pablo Botta</h2>
+                    <p>Algunos detalles para los que (todavía) no me conocen   ...</p>
+                    <ul>
+                        <li class="fragment"><strong>Ingeniero en Sistemas</strong> (<abbr title="Universidad Tecnológica Nacional">UTN</abbr>)</li>
+                        <li class="fragment"><strong>Desarrollador Web</strong> desde la época de <abbr title="Internet Explorer">IE</abbr> 6</li>
+                        <li class="fragment"><strong>Colaborador</strong> en <a href="http://a11yproject.com/" target="_blank" class="external"><abbr title="Accessibility">A11y</abbr> Project</a></li>
+                        <li class="fragment"><strong>Colaborador</strong> en <a href="http://www.forosdelweb.com/" target="_blank" class="external">Foros del Web</a></li>
+                        <li class="fragment"><strong>Charleta</strong> (me habrán visto en alguna otra charla)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Organización de la charla</h2>
+                    <ol>
+                        <li>Introducción a la problemática</li>
+                        <li>Componentes de una Web Móvil</li>
+                        <li>Ejemplo práctico</li>
+                    </ol>
+                </section>
+                <section>
+                    <h2>¿Qué es la Web?</h2>
+                    <blockquote class="text quote">
+                        <p>&ldquo;The World Wide Web (known as "WWW', "Web" or "W3") is the universe of network-accessible information, the embodiment of human knowledge.&rdquo;</p>
+                        <footer> — <cite><a href="http://www.w3.org/WWW/">W3C, 2001</a></cite>
+                        </footer>
+                    </blockquote>
+                    <p class="text">
+                        Toda la información accesibile a través de la red que representa al conocimiento humano.
+                    </p>
+                </section>
+                <section>
+                    <h2>¿Existe una única Web?</h2>
+                    <p>Web vs Web Móvil</p>
+                    <p>Web 1.0, 2.0 y 3.0</p>
+                </section>
+                <section>
+                    <p class="enfasis">La importancia de la Web móvil</p>
+                    <img src="images/mobile-desktop-map.png" alt="">
+                    <blockquote class="text quote">
+                        <p>&ldquo;Mobile was the final front in the access revolution. It has erased the digital divide. A mobile device is the internet for many people.&rdquo;</p>
+                        <footer> — <cite><a href="http://pewinternet.org/Commentary/2010/September/The-Power-of-Mobile.aspx">Susannah Fox (Pew Research Center), 2010</a></cite>
+                        </footer>
+                    </blockquote>
+                    <p><small>Fuente: <a href="http://gs.statcounter.com/#desktop+mobile-comparison-ww-monthly-201408-201410-map">Stat Counter</a></small></p>
+                </section>
+                <section>
+                    <p class="enfasis">Medios de accesos a la Web</p>
+                    <img src="images/mobile-desktop-tablet.png" alt="">
+                    <p>Está cambiando la manera en la que accedemos a la Web</p>
+                    <p><small>Fuente: <a href="http://gs.statcounter.com/#desktop+mobile+tablet-comparison-ww-monthly-201310-201410">Stat Counter</a></small></p>
+                </section>
+                <section>
+                    <section>
+                        <h2>La Web es una sola y está en todas partes</h2>
+                    </section>
+                    <section>
+                        <img src="images/placeit-desktop.jpg"  alt=""/>
+                        <p>Sistemas Operativos: Windows, OSX y GNU/Linux</p>
+                        <img src="images/os.png" alt="">
+                    </section>
+                    <section>
+                        <img src="images/placeit-notebook.jpg" alt="" />
+                        <p>Navegadores: Firefox, Google Chrome, Internet Explorer, Safari, Opera y más</p>
+                        <img src="images/browsers.jpg" alt="">
+                    </section>
+                    <section>
+                        <img src="images/placeit-mobile.jpg" alt="" />
+                        <p>Sistemas Operativos: Android, iOS, Windows Phone y más</p>
+                        <img src="images/mobile-os.jpg" alt="">
+                    </section>
+                    <section>
+                        <img src="images/placeit-tablet.jpg" alt="" />
+                        <p>Navegadores: Android Browser, Chrome, Firefox, Safari, Internet Explorer y más</p>
+                        <img src="images/browsers.jpg" alt="">
+                    </section>
+                    <section>
+                        <img src="images/placeit-tv.jpg" alt="" />
+                        <p>Smart TVs con navegadores propios </p>
+                    </section>
+                    <section>
+                        <img src="images/placeit-wacth.jpg" alt="" />
+                        <p>Relojes con sistemas operativos (Apple Wacth, Google Wear y más)</p>
+                    </section>
+                    <section>
+                        <img src="images/placeit-car.jpg" alt="" />
+                        <p>Autos con sistemas operativos (Android Auto y Apple Car)</p>
+                    </section>
+                    <section>
+                        <img src="images/placeit-glass.jpg" alt="" />
+                        <p>Lentes!!! Lentes con sistemas operativos (Google Glass)</p>
+                    </section>
+                    <section>
+                        <img src="images/placeit-firefoxos.jpg" height="500" alt="">
+                        <p>Sistemas operativos 100% construidos en tecnologías Web (ChromeOS, FirefoxOS)</p>
+                    </section>
+                    <section>
+                        <img src="images/placeit-cosmos.jpg" height="500" alt="">
+                        <p>Navegadores Web mediante SMS (Cosmos Browser)</p>
+                    </section>
+                    <section>
+                        <p class="enfasis">Estos no es la web pero ...</p>
+                        <p>Tecnologías Web usadas en otros fines</p>
+                        <ul>
+                            <li><a href="http://phonegap.com/">Phonegap / Apache Cordova</a> - Construir aplicaciones móviles</li>
+                            <li><a href="https://github.com/rogerwang/node-webkit">node-webkit</a>, <a href="https://code.google.com/p/chromiumembedded/">CEF</a> y <a href="">Atom Shell</a> - Construir aplicaciones de escritorio multiplataforma</li>
+                            <li><a href="http://dev.windows.com/en-us/develop/winjs">WinJS</a> - Framework para aplicaciones en Windows 8</li>
+                            <li><a href="https://wiki.gnome.org/JavaScript">CSS y JavaScript en GNOME</a> - Cómo lenguaje para desarrollar aplicaciones y extensiones de escritorio</li>
+                            <li><a href="http://developer.ubuntu.com/apps/html-5/">Ubuntu HTML5</a> - Aplicaciones Web corriendo como nativas en Ubuntu</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <p class="enfasis">Es para todos!</p>
+                    <blockquote class="text quote">
+                        <p>&ldquo;Diversity is not a bug…it’s an opportunity.&rdquo;</p>
+                        <footer> — <cite><a href="http://stephanierieger.com/diversity-is-not-a-bug/">Stephanie Rieger, 2012</a></cite>
+                        </footer>
+                    </blockquote>
+                    <blockquote class="text quote">
+                        <p>&ldquo;Americans deserve a government that works for them anytime, anywhere, and on any device..&rdquo;</p>
+                        <footer> — <cite><a href="http://www.whitehouse.gov/the-press-office/2012/05/23/obama-administration-launches-sweeping-shift-mobile">President Barack Obama, 2012</a></cite>
+                        </footer>
+                    </blockquote>
+                    <p class="text">Los personas con discapacidad deben tenerse en cuenta</p>
+                    <p class="text">La Web es democrática, cualquier persona es un usuario potencial y puede serlo en cualquier contexto.</p>
+                </section>
+                <section>
+                    <section>
+                        <p class="enfasis">No todo es un jardín de rosas</p>
+                    </section>
+                    <section>
+                        <p>Menos del 20% (mundial) de los móviles funcionan en una red 4G</p>
+                        <img src="images/2g-3g-4g.png" alt="">
+                        <p>En Argentina todavía no existen (recientemente se han licitados)</p>
+                        <p><small>Fuente: <a href="http://www.ericsson.com/news/1659597">Reporte de Ericsson</a></small></p>
+                    </section>
+                    <section>
+                        <p>Uno de cada dos teléfono NO es un Smartphone</p>
+                        <img src="images/features-smart.jpg" alt="">
+                        <p><small>Fuente: <a href="http://www.idc.com/tracker/showproductinfo.jsp?prod_id=37">Reporte de IDC - Worldwide Quarterly Mobile Phone Tracker</a></small></p>
+                    </section>
+                    <section>
+                        <p class="enfasis">¿Cuánto esperan los usuarios? (incluso en móviles)</p>
+                        <img src="images/web-pages-bounces.png" alt="">
+                        <blockquote class="text quote">
+                            <p>&ldquo;How long will users stay on a Web page before leaving? <br /> Not very long. Users often leave Web pages in 10-20 seconds, but pages with a clear value proposition can hold people's attention for much longer.&rdquo;</p>
+                            <footer> — <cite><a href="http://www.nngroup.com/articles/how-long-do-users-stay-on-web-pages/">Jakob Nielsen, 2011</a></cite>
+                            </footer>
+                        </blockquote>
+                    </section>
+                </section>
+                <section>
+                    <p class="enfasis">¿Cómo resolvemos este problema?</p>
+                    <img src="images/rubik.jpg" alt="">
+                </section>
+                <section>
+                    <h2>Principios de una Web Adaptable</h2>
+                    <p class="enfasis">Construimos para el futuro</p>
+                    <ul>
+                        <li class="fragment">Adaptabilidad</li>
+                        <li class="fragment">Performance</li>
+                        <li class="fragment">Interoperabilidad y usabilidad</li>
+                        <li class="fragment">Mejora progresiva y a prueba de cambios</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Adaptabilidad</h3>
+                    <p class="enfasis">La Web es (casi) totalmente fluida por diseño</p>
+                    <iframe src="../fluidity-gh-pages/index.html" frameborder="0" width="940" height="400" style="background: white;"></iframe>
+                    <p class="text">Eso nos enseña el proyecto <a href="http://fluidity.sexy/">Fluidity</a>, generalmente es el desarrollador quién la rompe.</p>
+                </section>
+                <section>
+                    <p class="enfasis">Componentes de una Web Apdatable</p>
+                    <ul>
+                        <li>Uso de media querys<span class="fragment">: <a href="http://www.w3.org/TR/css3-mediaqueries/">especificación</a> + <a href="http://mediaqueri.es/">ejemplos</a></span></li>
+                        <li>Grillas fluidas<span class="fragment">: <a href="http://zurb.com/">ZURB</a>, <a href="getbootstrap.com">Bootstrap</a>, <a href="http://picnicss.com/">PicniCSS</a>, <a href="http://purecss.io/">PureCSS</a> o <a href="http://designmodo.com/grid-systems/">Caseras</a></span></li>
+                        <li>Imágenes adaptables<span class="fragment">: <a href="http://scottjehl.github.io/picturefill/">Picturefill 2.0</a> y <a href="https://github.com/aFarkas/lazysizes">Lazysizes</a></span></li>
+                        <li>Tipografía adaptables<span class="fragment">: <a href="http://caniuse.com/#feat=rem"><abbr title="Root EM">Rem</abbr></a>, <a href="http://www.smashingmagazine.com/2014/09/29/balancing-line-length-font-size-responsive-web-design/">balanceando el texto</a> o <a href="http://simplefocus.com/flowtype/">FlowType.js</a></span></li>
+                        <li>Tablas adaptables<span class="fragment">: <a href="http://blog.easy-designs.net/archives/responsive-tables/">Únicamente con CSS</a>, <a href="http://johnpolacek.github.io/stacktable.js/">Stackable.js</a> o <a href="https://github.com/filamentgroup/tablesaw">Tablesaw</a></span></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <p class="enfasis">El conflicto del contenido</p>
+                    <img src="images/university-website.jpg" alt="">
+                    <p>
+                        <a href="http://xkcd.com/773/">Publicado en xkcd</a>
+                    </p>
+                    <p class="text">Estrategia de contenido<span class="fragment">: <a href="http://www.abookapart.com/products/mobile-first">Content over navigation</a> y <a href="http://www.silkstream.net/blog/2014/07/content-is-king-bill-gates-1996.html">Content is the king</a></span></p>
+                </section>
+
+                <section>
+                    <h3>Perfomance</h3>
+                    <p>Los sitios Web han engordado en el último tiempo</p>
+                    <img src="images/growth-average-web-page2014.png" alt="">
+                    <p><small>Fuente: <a href="http://www.websiteoptimization.com/speed/tweak/average-web-page/">Website Optimization</a></small></p>
+                </section>
+                <section>
+                    <p class="enfasis text">Conceptos sobre performance</p>
+                    <div class="fragment">
+                        <blockquote class="text quote">
+                            <p>&ldquo;Page weight isn't the only measure; focus on perceived performance&rdquo;</p>
+                            <footer> — <cite><a href="http://www.filamentgroup.com/lab/performance-rwd.html">Scott Jehl, 2014</a></cite>
+                            </footer>
+                        </blockquote>
+                        <p class="text">La performance en parte es un atributo que se percibe. </p>
+                    </div>
+                    <div class="fragment">
+                        <blockquote class="text quote">
+                            <p>&ldquo;Expect RWD to add ~10% [...] If you dig in, you can see that most of my rendering and latency problems are being caused by classic modern day web design performance [...]&rdquo;</p>
+                            <footer> — <cite><a href="http://daverupert.com/2014/07/rwd-bloat/">Dave Rupert, 2014</a></cite>
+                            </footer>
+                        </blockquote>
+                        <p class="text">Nuevamente es el desarrollador quién rompe las cosas.</p>
+                    </div>
+                </section>
+                <section>
+                    <p class="enfasis">Componentes de una web performante</p>
+                    <ul>
+                        <li>Poner en línea el CSS <em lang="en">Above the Fold</em> <span class="fragment">: <a href="https://github.com/addyosmani/above-the-fold-css-tools">Técnicas</a></span></li>
+                        <li>Miniminzar, comprimir y cachear (Imágenes, CSS y Scripts)</li>
+                        <li>Optimizar imágenes <span class="fragment">: <a href="https://compressor.io/">Compressor</a></span></li>
+                        <li>Agilizar WebFonts <span class="fragment">: <a href="http://bdadam.com/blog/loading-webfonts-with-high-performance.html">Tutorial</a></span></li>
+                        <li>Diferir la ejecución de JavaScript <span class="fragment">: <a href="http://caniuse.com/#feat=script-async">¿Puedo usarlo ya?</a></span></li>
+                    </ul>
+                    <img src="images/script-async.jpg" alt="">
+                </section>
+                <section>
+                    <p class="enfasis">Herramientas de performance</p>
+                    <ul>
+                        <li><a href="https://developers.google.com/speed/pagespeed/insights">Google PageSpeed</a>: Medición del rendimiento más consejos de optimización</li>
+                        <li><a href="http://www.webpagetest.org">Web Page Test</a>: Análisis muy completo incluyendo líneas de tiempo</li>
+                        <li><a href="https://github.com/zeman/perfmap">Perfmap</a>: Muestra cuáles son los componentes que más demoran en cargar</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Interoperabilidad y usabilidad</h3>
+                    <blockquote class="text quote">
+                        <img src="images/como-llego-rosario.png" alt="" class="image-left" />
+                        <p>&ldquo;It looks like you're on a train. Would you like me to show you the insultingly simplified mobile site?&rdquo;</p>
+                        <footer> — <cite><a href="http://bkaprt.com/csm/15">Cennydd Bowles, 2011</a></cite>
+                        </footer>
+                    </blockquote>
+                    <p class="text">Estoy en la calle, quiero ir a un lugar y no conozco con que colectivo llegar. Es obvio que voy a querer consutarlo desde mi móvil</p>
+                    <p class="text">Además ... no todos son smartphones con acceso a aplicaciones</p>
+                </section>
+                <section>
+                    <p class="enfasis">Seguir los estándares es un camino a evitar los inconvenientes de la fragmentación</p>
+                    <img src="images/mobile-browser-fragmentation.png" alt="">
+                    <p><small>Fuente: <a href="http://gs.statcounter.com/#mobile_browser-ww-monthly-201310-201410">Stat Counter</a></small></p>
+                </section>
+                <section>
+                    <h3>Mejora progresiva (Enhacement) y a pruebas del futuro (Future-Friendly)</h3>
+                    <p class="enfasis">Un solo diseño no tiene que ser para todos.</p>
+                    <p class="text">Aportar una mejor experiencia a quién pueda disfrutarlo o obtenerlo (Soportar y optimización)</p>
+                    <ul>
+                        <li>Detección de carácteristicas: <a href="http://modernizr.com/">Modernizr</a> (usar con moderación) + <a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills">Polyfills</a></li>
+                        <li>Evitar llenar el sitio de Scripts. Ejemplo: <a href="http://blog.easy-designs.net/archives/dont-sell-out-your-users/">iconos sociales no intrusivos</a> </li>
+                    </ul>
+                    
+                    
+                </section>
+                <section>
+                    <h3>Manos a la obra</h3>
+                    <img src="images/manos-obra.jpg" alt="">
+                    <p><small>Imagen cortesía de <a href="https://www.flickr.com/photos/jdhancock/">JD Hancock
+</a></small></p>
+                </section>
+                <section>
+                    <p class="enfasis">Trataremos de "movilizar" el sitio de <a href="http://rosarioenbici.com/">Rosario en Bici</a></p>
+                    <img src="images/PageSpeed_Mobile.png" alt="">
+                </section>
+                <section>
+                    <p class="enfasis">Cuestiones a corregir</p>
+                    <img src="images/Mejoras.png" alt="">
+                </section>
+                <section>
+                    <p class="enfasis">Preguntas</p>
+                    <img src="images/questions.jpg" alt="">
+                    <p><small>Cortesía de <a target="_blank" href="http://www.flickr.com/photos/jaygooby/" class="roll"><span data-title="Jay Gooby">Jay Gooby</span></a></small></p>
+                </section>
+                <section>
+                    <p class="enfasis">Gracias</p>
+                    <img src="images/thank-you.jpg" alt="">
+                    <p><a href="https://twitter.com/pablo_botta">@pablo_botta en Twitter</a></p>
+                    <p><a href="https://github.com/p4bl1t0">p4bl1t0 en GitHub</a></p>
+                    <p>pabloluisbotta(arroba)gmail.com</p>
+                    <p><small>Imagen cortesía de <a href="http://www.flickr.com/photos/theilluminated/">Jon Ashcroft</a></small></p>
+                </section>
+
+                <!-- 
+                <img src="small.jpg" srcset="small.jpg [smallwidth]w, large.jpg [largewidth]w" alt="Alt Text" />
+                -->
+
+                <!-- EN BORRADOR DE ACÁ PARA ABAJO -->
+                <!--<section>
+                    Buen contenido es apropieado para el negocio (porque ayuda a alcanzar una meta de negocio, incrementar las ventas) y para el usuario (ayuda a completar su tarea u objetivo) y el contexto
+                    Buen contenido es útil con propósito claro
+                    Buen contenido está centrado en el usuario
+                    Buen contenido es claro y comunica bien
+                    Es consistente y conciso (actualizad y mantenido)
+                    Mobile use cases like lookup/find, explore/play, check-in/status, and edit/create allow you to think through how your site will be used on mobile and adjust its structure appropriately.
+                    Focusing on content first, navigation second gets people to the information and tasks they want quickly.
+                    Relevant and well-placed navigation options allow people to dive deeper or pivot to explore other parts of your site.
+                    Reducing the amount of navigation choices and chrome on key tasks maintains clarity and focus on what people need to accomplish—helpful when they are hurried or in less than ideal situations.
+                    And when they do have some relaxing time on the couch with their mobile, people will still appreciate the simplicity of your design!
+                </section>-->
+
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                width: 1100,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
